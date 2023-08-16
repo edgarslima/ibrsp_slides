@@ -1,0 +1,20 @@
+# Arquivos gerados pelo Visual Studio
+*.user
+*.suo
+*.sln.docstates
+bin/
+obj/
+.vs/
+
+# Arquivos gerados pela compilação
+*.dll
+*.exe
+*.pdb
+*.cache
+
+# Arquivos de configuração pessoal
+*.config
+
+# Outros arquivos que você não quer versionar
+*.log
+*.tmp
