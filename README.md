@@ -28,7 +28,7 @@ Instalação do cliente
 ```
 ## Autor
 
-- [@edgarslima](https://www.github.com/edgarslima)
+- [@edgarslima](https://www.github.com/edgarslima) - Edgar Lima
 
 
 ## Licença
