@@ -33,11 +33,11 @@ Instalação do cliente
 - [x] Extração de texto das apresentações PowerPoint (PPTX)
 - [ ] Melhorias na aplicação Cliente
   - [x] Correção de erro ao carregar a imagem de fundo, salvando para não precisar selecionar sempre
-  - [ ] Criar modo off-line para utilização do aplicativo cliente
-  - [ ] Correção de erro para conseguir simular sem que a comunicação com o servidor esteja ativa
+  - [x] Criar modo off-line para utilização do aplicativo cliente
+  - [x] Correção de erro para conseguir simular sem que a comunicação com o servidor esteja ativa
   - [ ] Criação de Pesquisa de Letra de Música em tempo real
   - [ ] Seleção de músicas de forma facilitada para eventos agendados
-  - [ ] Sugerir formatação e quebra de linha de forma automática
+  - [x] Sugerir formatação e quebra de linha de forma automática
   - [ ] Documentação para utilização do aplicativo
   - [ ] Documentação para instalação do aplicativo
   - [ ] Documentação para alteração, manutenção e evolução do aplicativo
