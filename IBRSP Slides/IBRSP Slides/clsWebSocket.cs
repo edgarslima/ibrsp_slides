@@ -12,7 +12,7 @@ namespace IBRSP_Slides
         public string enviaMensagem(string linha, string endereco_ip, string porta)
         {
             string mensagemRet = "";
-            using (var ws = new WebSocket(string.Format( "ws://{0}:{1}/", endereco_ip, porta)))
+            using (var ws = new WebSocket(string.Format("ws://{0}:{1}/", endereco_ip, porta)))
             {
                 ws.OnMessage += (sender, e) =>
                       mensagemRet = e.Data;
@@ -27,18 +27,30 @@ namespace IBRSP_Slides
         public Boolean servidorOnline(string endereco_ip, string porta)
         {
 
-            using (var ws = new WebSocket(string.Format("ws://{0}:{1}/", endereco_ip, porta)))
+            using (var ws = new WebSocket(string.Format("ws://{0}:{1}/", endereco_ip, porta) ) )
             {
                 try
                 {
+                    TimeSpan ts = new TimeSpan(0, 0, 0,2);
+                    ws.WaitTime = ts;
                     ws.Connect();
-                    return true;
+                    if (ws.IsAlive == true)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    
+
                 }
                 catch
                 {
                     return false;
                 }
             }
+
         }
     }
 

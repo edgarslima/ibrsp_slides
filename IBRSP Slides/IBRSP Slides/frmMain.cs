@@ -37,7 +37,7 @@ namespace IBRSP_Slides
         float _EspacoSuperior = Settings.EspacoSuperior;
         string _imagemFundo = Settings.ImagemFundo;
         Boolean _online = false;
-        Boolean _forceOnline = false;
+        Boolean _conexaoOK = false;
 
         string textoAtualSlide = "";
         string nome_fonte = "Arial";
@@ -52,11 +52,29 @@ namespace IBRSP_Slides
                 }
                 clsWebSocket objWebSocket = new clsWebSocket();
                 string strRetWebSocket = "";
+                if (_conexaoOK == false)
+                {
+                    laConectando.Text = "Conectando, aguarde...";
+                    laConectando.Visible = true;
+                    laConectando.Dock = DockStyle.Fill;
+                    Application.DoEvents();
+                }
+                
+
                 if (objWebSocket.servidorOnline(tbEnderecoIP.Text, tbPorta.Text) == false)
                 {
+                    _conexaoOK = false;
                     laInfoServidor.Text = "Servidor fora do ar...";
+                    _online = false;
+                    btnOnLine.Text = "Off Line";
+                    btnOnLine.ForeColor = Color.Red;
+                    btnOnLine.Enabled = true;
+                    laConectando.Visible = false;
                     return;
                 }
+                _conexaoOK = true;
+                laConectando.Visible = false;
+                btnOnLine.Text = "On Line";
                 laInfoServidor.Text = "Servidor encontrado.";
                 strRetWebSocket = objWebSocket.enviaMensagem(texto, tbEnderecoIP.Text, tbPorta.Text);
 
@@ -425,10 +443,19 @@ namespace IBRSP_Slides
 
         private void btnOnLine_Click(object sender, EventArgs e)
         {
-            if (_forceOnline == true)
+            if (_online == false)
             {
-                Font fontBotao = btnOnLine.Font;
-
+                _online = true;
+                btnOnLine.Text = "Conectando...";
+                btnOnLine.ForeColor = Color.Green;
+                laInfoServidor.Text = "";
+                this.Refresh();
+                Application.DoEvents();
+                lsLinhas_SelectedIndexChanged(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Servidor já está on line.", "Atenção!");
             }
         }
     }

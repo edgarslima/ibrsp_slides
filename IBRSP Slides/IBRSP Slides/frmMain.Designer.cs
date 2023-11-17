@@ -52,6 +52,7 @@ namespace IBRSP_Slides
             this.listArquivos = new System.Windows.Forms.ListView();
             this.arquivo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnOnLine = new System.Windows.Forms.Button();
             this.laInfoServidor = new System.Windows.Forms.Label();
             this.cmdCarregar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -63,7 +64,7 @@ namespace IBRSP_Slides
             this.cbMonitor = new System.Windows.Forms.ComboBox();
             this.laMonitor = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.btnOnLine = new System.Windows.Forms.Button();
+            this.laConectando = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
@@ -417,6 +418,19 @@ namespace IBRSP_Slides
             // 
             this.nome.Text = "Nome";
             // 
+            // btnOnLine
+            // 
+            this.btnOnLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOnLine.BackColor = System.Drawing.SystemColors.Control;
+            this.btnOnLine.Enabled = false;
+            this.btnOnLine.ForeColor = System.Drawing.Color.Green;
+            this.btnOnLine.Location = new System.Drawing.Point(624, 21);
+            this.btnOnLine.Name = "btnOnLine";
+            this.btnOnLine.Size = new System.Drawing.Size(75, 23);
+            this.btnOnLine.TabIndex = 30;
+            this.btnOnLine.UseVisualStyleBackColor = false;
+            this.btnOnLine.Click += new System.EventHandler(this.btnOnLine_Click);
+            // 
             // laInfoServidor
             // 
             this.laInfoServidor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -523,24 +537,24 @@ namespace IBRSP_Slides
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // btnOnLine
+            // laConectando
             // 
-            this.btnOnLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOnLine.BackColor = System.Drawing.SystemColors.Control;
-            this.btnOnLine.ForeColor = System.Drawing.Color.Green;
-            this.btnOnLine.Location = new System.Drawing.Point(624, 21);
-            this.btnOnLine.Name = "btnOnLine";
-            this.btnOnLine.Size = new System.Drawing.Size(75, 23);
-            this.btnOnLine.TabIndex = 30;
-            this.btnOnLine.Text = "On Line";
-            this.btnOnLine.UseVisualStyleBackColor = false;
-            this.btnOnLine.Click += new System.EventHandler(this.btnOnLine_Click);
+            this.laConectando.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.laConectando.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.laConectando.Location = new System.Drawing.Point(334, 251);
+            this.laConectando.Name = "laConectando";
+            this.laConectando.Size = new System.Drawing.Size(299, 108);
+            this.laConectando.TabIndex = 26;
+            this.laConectando.Text = "Conectando, ....\r\nAguarde!";
+            this.laConectando.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.laConectando.Visible = false;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 611);
+            this.Controls.Add(this.laConectando);
             this.Controls.Add(this.splitContainer4);
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(840, 650);
@@ -612,6 +626,7 @@ namespace IBRSP_Slides
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button btnOnLine;
+        private System.Windows.Forms.Label laConectando;
     }
 }
 
